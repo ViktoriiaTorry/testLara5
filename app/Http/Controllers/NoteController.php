@@ -13,8 +13,10 @@ class NoteController extends Controller
      * @param  \App\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function show(Note $note)
+    public function listAction(Note $note)
     {
+        $note = Note::all();
+
         return response()->json($note, 1);
     }
 

@@ -19,9 +19,10 @@ use Illuminate\Http\Request;
 
 
 Route::post('v1/user/register', 'RegisterUserController@register')->middleware('auth:api');
-Route::post('v1/users', 'AuthController@register')->middleware('auth:api');
+Route::post('v1/users', 'AuthController@login')->middleware('auth:api');
+Route::get('v1/user/{id}', 'UserController@getDetails')->middleware('auth:api');
 
 
 Route::post('v1/note','noteController@store')->middleware('auth:api');
 Route::post('v1/note/{id}', 'noteController@update')->middleware('auth:api');
-Route::get('v1/notes}', 'apiController@list')->middleware('auth:api');
+Route::get('v1/notes}', 'apiController@listAction')->middleware('auth:api');
